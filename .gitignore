@@ -90,4 +90,6 @@ myenv/
 .venv
 venv/
 
-.env
+.envembeddings.npy
+disease.index
+disease_corpus.pkl
