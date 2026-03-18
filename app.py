@@ -11,7 +11,7 @@ load_dotenv()
 
 print("📂 Loading all components...\n")
 
-with open('/home/nasc/medAI/disease_corpus.pkl', 'rb') as f:
+with open('pdf_corpus.pkl', 'rb') as f:
     corpus = pickle.load(f)
 print(f"✅ Corpus loaded    : {len(corpus)} chunks")
 
@@ -20,7 +20,7 @@ embedder = SentenceTransformer(
 )
 print(f"✅ Embedder loaded")
 
-index = faiss.read_index('/home/nasc/medAI/disease.index')
+index = faiss.read_index('disease.index')
 print(f"✅ FAISS index loaded: {index.ntotal} vectors")
 
 GROQ_API_KEY = os.getenv("groq_key", "").strip().strip("'\"")
@@ -180,5 +180,5 @@ if __name__ == "__main__":
     app.launch(
         server_name="0.0.0.0",
         server_port=7860,
-        share=True
+        share=False
     )

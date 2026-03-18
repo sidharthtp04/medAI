@@ -6,7 +6,7 @@ import torch
 from sentence_transformers import SentenceTransformer
 
 print("📂 Loading corpus...")
-with open('/home/nasc/medAI/disease_corpus.pkl', 'rb') as f:
+with open('pdf_corpus.pkl', 'rb') as f:
     corpus = pickle.load(f)
 print(f"✅ Corpus loaded: {len(corpus)} chunks")
 
@@ -43,8 +43,8 @@ print(f"✅ FAISS index built: {index.ntotal} vectors")
 # ── Save everything ───────────────────────────────────
 print("\n💾 Saving to disk...")
 
-np.save('/home/nasc/medAI/embeddings.npy', embeddings)
-faiss.write_index(index, '/home/nasc/medAI/disease.index')
+np.save('embeddings.npy', embeddings)
+faiss.write_index(index, 'disease.index')
 
 print("✅ Embeddings saved : embeddings.npy")
 print("✅ FAISS index saved: disease.index")
